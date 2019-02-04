@@ -1,3 +1,6 @@
+import datetime
+import os
+
 from modules.who_is import who_is
 from modules.command_line_fu import command_line_fu
 from modules.check_my_ip import check_my_ip
@@ -5,7 +8,7 @@ from modules.scrap_website_for_links import scrap_website_for_links
 from modules.generate_random_string import generate_string
 from modules.geolocate_ip_address import geolocate_adress
 from modules.port_scanner import port_scanner
-
+import git
 
 def main():
     menu_list = """
@@ -42,4 +45,14 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # main()
+    test_string = generate_string()
+    f = open("demofile.txt", "w")
+    f.write("Updated on:" + str(datetime.datetime.utcnow()) + ". Generated string: " + test_string)
+    f.close()
+
+
+    print(os.getcwd())
+    r = git.Repo.init(os.getcwd())
+    r.index.add(["demofile.txt"])
+    r.index.commit("Test commit:" + str(datetime.datetime.utcnow()))
