@@ -5,6 +5,7 @@ import string
 from random import randint, choice
 import time
 import shutil
+import sh
 
 def generate_string():
     characters = string.ascii_letters + string.punctuation + string.digits
@@ -15,7 +16,7 @@ def generate_string():
 
 def todo_job():
     test_string = generate_string()
-    f = open("testing_ciduty_tools/demofile.txt", "w")
+    f = open("demofile.txt", "w")
     f.write("Updated on:" + str(datetime.datetime.utcnow()) + ". Generated string: " + test_string)
     f.close()
 
@@ -41,11 +42,23 @@ def handle_git():
     
     # #Pushing the commit to the origin. (master branch,)
     # origin.push()
-    os.system("git add .")
-    time.sleep(1)
-    os.system("git commit - m \"Test commit: " + str(datetime.datetime.utcnow()) + "\"")
-    time.sleep(1)
-    os.system("git push origin master")
+    
+    # os.system("git add .")
+    # time.sleep(1)
+    data = str(datetime.datetime.utcnow())
+    commit_message = "commit - m \"Test commit: " + data + "\""
+    # os.system("git commit - m \"Test commit: " + data + "\"")
+    # time.sleep(1)
+    # os.system("git push origin master")
+    
+    git("add .")
+    commit_command = "commit -m " + commit_message
+    git(commit_command)
+
+    git("push origin master")
+    # pbs.Command("git add .")
+    # pbs.Command(commit_command)
+    # pbs.Command("git push origin master")
 
 
 
