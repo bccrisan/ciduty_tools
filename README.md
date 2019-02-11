@@ -1,1 +1,3 @@
-# ciduty_tools
+### ciduty_tools
+#### Image test:
+![GitHub Logo](/images/logo.png)
