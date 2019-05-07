@@ -3,5 +3,5 @@
 ![GitHub Logo](/images/logo.jpg)
 
 ```include
-test_file.md
+.test_file.md
 ```
