@@ -2,4 +2,6 @@
 #### Image test:
 ![GitHub Logo](/images/logo.jpg)
 
-!INCLUDE "test_file.md"
+```include
+test_file.md
+```
